@@ -1,0 +1,6 @@
+@SistemaInventarioTransacciones.Api_HostAddress = http://localhost:5201
+
+GET {{SistemaInventarioTransacciones.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

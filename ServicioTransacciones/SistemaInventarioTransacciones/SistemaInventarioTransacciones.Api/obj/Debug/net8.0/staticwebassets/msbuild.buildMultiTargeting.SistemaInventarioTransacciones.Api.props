@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SistemaInventarioTransacciones.Api.props" />
+</Project>

@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "SistemaInventarioTransacciones.Aplicacion/1.0.0": {
+        "dependencies": {
+          "SistemaInventarioTransacciones.Dominio": "1.0.0"
+        },
+        "runtime": {
+          "SistemaInventarioTransacciones.Aplicacion.dll": {}
+        }
+      },
+      "SistemaInventarioTransacciones.Dominio/1.0.0": {
+        "runtime": {
+          "SistemaInventarioTransacciones.Dominio.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SistemaInventarioTransacciones.Aplicacion/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SistemaInventarioTransacciones.Dominio/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,242 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand me" href="#">Gestión de Transacciones</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<div class="container my-5">
+  <h2 class="fw-bold">Transacciones</h2>
+  <p class="text-muted">Reporte de Transacciones</p>
+
+  <div class="d-flex justify-content-end mb-3">
+    <button class="btn btn-primary" (click)="AgregarTransaccionModal(agregar)">
+      <i class="bi bi-plus"></i> Nueva Transacción
+    </button>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-header fw-bold">
+      <i class="bi bi-funnel-fill"></i> Filtros de Búsqueda
+    </div>
+    <div class="card-body">
+      <div class="row g-3">
+        <div class="col-md-3">
+          <h4> Filtrar por producto</h4>
+        </div>
+        <div class="col-md-3 ms-2">
+          <h4> Filtrar por fechas</h4>
+        </div>
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-2 ms-2">
+          <button class="btn btn-secondary" style="font-size:14px" (click)="reiniciar()"> Reiniciar Filtros</button>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-md-3">
+          <select id="opciones" style="font-size:14px" class="form-select" [(ngModel)]="filtroProducto"
+            (change)="filtrarItems()">
+            <option value="" disabled selected>Búsqueda por producto</option>
+            <option *ngFor="let productoF of productos" [value]="productoF.idProducto">
+              {{ productoF.nombre }}
+            </option>
+          </select>
+        </div>
+        <div class="col-md-3 ms-2 d-flex align-items-center">
+          <label class="form-label mt-2" style="font-size:14px">Inicial:</label>
+          <div class="input-group">
+            <input class="form-control" style="font-size:14px" placeholder="aaaa-mm-dd" ngbDatepicker #d="ngbDatepicker"
+              [(ngModel)]="filtroFechaInicial" />
+            <button class="btn btn-outline-secondary bi bi-calendar2-week" (click)="d.toggle()" type="button"></button>
+          </div>
+        </div>
+        <div class="col-md-3 d-flex align-items-center">
+          <label class="form-label mt-2" style="font-size:14px">Final:</label>
+          <div class="input-group">
+            <input class="form-control" style="font-size:14px" placeholder="aaaa-mm-dd" ngbDatepicker #e="ngbDatepicker"
+              [(ngModel)]="filtroFechaFinal" />
+            <button class="btn btn-outline-secondary bi bi-calendar2-week" (click)="e.toggle()" type="button"></button>
+          </div>
+        </div>
+        <div class="col-md-2 ms-2 d-flex align-items-center">
+          <button class="btn btn-primary" style="font-size:14px" (click)="filtrarPorFecha()"> Buscar
+            Transacciones</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Código</th>
+          <th>Fecha</th>
+          <th>Tipo</th>
+          <th>Id Producto</th>
+          <th>Cantidad</th>
+          <th>Precio Unitario</th>
+          <th>Precio Total</th>
+          <th>Detalle</th>
+          <th>Operaciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let transaccion of transaccionesFiltradas | paginate: { itemsPerPage: 5, currentPage: paginaActual }">
+          <td><small class="text-muted">{{ transaccion.idTransaccion }}</small></td>
+          <td style="font-size:14px">{{ transaccion.fecha | date:'yyyy-MM-dd' }}</td>
+          <td style="font-size:14px">{{ transaccion.tipoTransaccion }}</td>
+          <td style="font-size:14px">{{ transaccion.idProducto }}</td>
+          <td style="font-size:14px">{{ transaccion.cantidad }}</td>
+          <td style="font-size:14px">{{ transaccion.precioUnitario }}</td>
+          <td style="font-size:14px">{{ transaccion.precioTotal }}</td>
+          <td style="font-size:14px">{{ transaccion.detalle }}</td>
+          <td>
+            <button class="btn btn-sm btn-outline-secondary me-1"
+              (click)="ActualizarProductoModal(editar, transaccion)"><i class="bi bi-pencil"></i></button>
+            <button class="btn btn-sm btn-outline-danger" (click)="EliminarProductoModal(eliminar, transaccion)"><i
+                class="bi bi-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center">
+      <pagination-controls (pageChange)="paginaActual = $event" previousLabel="Anterior" nextLabel="Siguiente">
+      </pagination-controls>
+    </div>
+  </div>
+</div>
+
+<ng-template #agregar let-modal>
+  <form [formGroup]="form" style="font-size:14px" (ngSubmit)="GuardarFormularioAgregar(modal)">
+    <div class="modal-header">
+      <h6 class="modal-title">Agregar Transaccion</h6>
+      <button type="button" class="btn-close" (click)="modal.dismiss(); this.form.reset()"></button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-3">
+        <label for="transaccion" class="form-label mt-2">Producto:</label>
+        <select id="opciones" style="font-size:14px" class="form-select" [class.is-invalid]="ProductoInvalido"
+          (change)="CambiarProducto($event)" formControlName="producto">
+          <option *ngFor="let producto of productos" [value]="producto.idProducto">{{ producto.nombre }}</option>
+        </select>
+        <small *ngIf="ProductoInvalido" class="text-danger">Campo Obligatorio</small><br *ngIf="ProductoInvalido">
+        <label for="transaccion" class="form-label mt-2">Fecha:</label>
+        <div class="input-group">
+          <input class="form-control" style="font-size:14px" placeholder="aaaa-mm-dd" name="dp" ngbDatepicker
+            #d="ngbDatepicker" [class.is-invalid]="FechaInvalida" formControlName="fecha" />
+          <button class="btn btn-outline-secondary bi bi-calendar2-week" (click)="d.toggle()" type="button"></button>
+        </div>
+        <small *ngIf="FechaInvalida" class="text-danger">Campo Obligatorio</small><br *ngIf="FechaInvalida">
+        <label for="transaccion" class="form-label">Tipo de Transaccion</label>
+        <select id="opciones" style="font-size:14px" class="form-select" [class.is-invalid]="TipoTransaccionInvalida"
+          formControlName="tipoTransaccion">
+          <option *ngFor="let tipoTransaccion of tiposTransacciones" [value]="tipoTransaccion">{{ tipoTransaccion }}
+          </option>
+        </select>
+        <small *ngIf="TipoTransaccionInvalida" class="text-danger">Campo Obligatorio</small><br
+          *ngIf="TipoTransaccionInvalida">
+        <label for="transaccion" class="form-label mt-2">Cantidad</label>
+        <input type="number" class="form-control" style="font-size:14px" [class.is-invalid]="CantidadInvalida"
+          (input)="CalcularTotal()" formControlName="cantidad">
+        <small *ngIf="CantidadInvalida" class="text-danger">Campo Obligatorio</small><br *ngIf="CantidadInvalida">
+        <label for="transaccion" class="form-label mt-2">Precio Unitario:</label>
+        <input type="number" class="form-control" style="font-size:14px" [class.is-invalid]="PrecioUnitarioInvalido"
+          formControlName="precioUnitario">
+        <small *ngIf="PrecioUnitarioInvalido" class="text-danger">Campo Obligatorio</small><br
+          *ngIf="PrecioUnitarioInvalido">
+        <label for="transaccion" class="form-label mt-2">Precio Total:</label>
+        <input type="number" class="form-control" style="font-size:14px" [class.is-invalid]="PrecioTotalInvalido"
+          formControlName="precioTotal">
+        <small *ngIf="PrecioTotalInvalido" class="text-danger">Campo Obligatorio</small><br *ngIf="PrecioTotalInvalido">
+        <label for="transaccion" class="form-label mt-2">Detalle:</label>
+        <input type="text" class="form-control" style="font-size:14px" [class.is-invalid]="DetalleInvalido"
+          formControlName="detalle">
+        <small *ngIf="DetalleInvalido" class="text-danger">Campo Obligatorio</small><br *ngIf="DetalleInvalido">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary btn-sm"
+        (click)="modal.dismiss(); this.form.reset()">Cancelar</button>
+      <button type="submit" class="btn btn-primary btn-sm">Agregar</button>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #editar let-modal>
+  <form [formGroup]="form" style="font-size:14px" (ngSubmit)="GuardarFormularioActualizar(modal)">
+    <div class="modal-header">
+      <h6 class="modal-title">Editar Transaccion</h6>
+      <button type="button" class="btn-close" (click)="modal.dismiss(); this.form.reset()"></button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-3">
+        <label for="transaccion" class="form-label mt-2">Producto:</label>
+        <select id="opciones" style="font-size:14px" class="form-select" [class.is-invalid]="ProductoInvalido"
+          (change)="CambiarProducto($event)" formControlName="producto">
+          <option *ngFor="let producto of productos" [value]="producto.idProducto">{{ producto.nombre }}</option>
+        </select>
+        <small *ngIf="ProductoInvalido" class="text-danger">Campo Obligatorio</small><br *ngIf="ProductoInvalido">
+        <label for="transaccion" class="form-label mt-2">Fecha:</label>
+        <div class="input-group">
+          <input class="form-control" style="font-size:14px" placeholder="aaaa-mm-dd" name="dp" ngbDatepicker
+            #d="ngbDatepicker" [class.is-invalid]="FechaInvalida" formControlName="fecha" />
+          <button class="btn btn-outline-secondary bi bi-calendar2-week" (click)="d.toggle()" type="button"></button>
+        </div>
+        <small *ngIf="FechaInvalida" class="text-danger">Campo Obligatorio</small><br *ngIf="FechaInvalida">
+        <label for="transaccion" class="form-label">Tipo de Transaccion</label>
+        <select id="opciones" style="font-size:14px" class="form-select" [class.is-invalid]="TipoTransaccionInvalida"
+          formControlName="tipoTransaccion">
+          <option *ngFor="let tipoTransaccion of tiposTransacciones" [value]="tipoTransaccion">{{ tipoTransaccion }}
+          </option>
+        </select>
+        <small *ngIf="TipoTransaccionInvalida" class="text-danger">Campo Obligatorio</small><br
+          *ngIf="TipoTransaccionInvalida">
+        <label for="transaccion" class="form-label mt-2">Cantidad</label>
+        <input type="number" class="form-control" style="font-size:14px" [class.is-invalid]="CantidadInvalida"
+          (input)="CalcularTotal()" formControlName="cantidad">
+        <small *ngIf="CantidadInvalida" class="text-danger">Campo Obligatorio</small><br *ngIf="CantidadInvalida">
+        <label for="transaccion" class="form-label mt-2">Precio Unitario:</label>
+        <input type="number" class="form-control" style="font-size:14px" [class.is-invalid]="PrecioUnitarioInvalido"
+          formControlName="precioUnitario">
+        <small *ngIf="PrecioUnitarioInvalido" class="text-danger">Campo Obligatorio</small><br
+          *ngIf="PrecioUnitarioInvalido">
+        <label for="transaccion" class="form-label mt-2">Precio Total:</label>
+        <input type="number" class="form-control" style="font-size:14px" [class.is-invalid]="PrecioTotalInvalido"
+          formControlName="precioTotal">
+        <small *ngIf="PrecioTotalInvalido" class="text-danger">Campo Obligatorio</small><br *ngIf="PrecioTotalInvalido">
+        <label for="transaccion" class="form-label mt-2">Detalle:</label>
+        <input type="text" class="form-control" style="font-size:14px" [class.is-invalid]="DetalleInvalido"
+          formControlName="detalle">
+        <small *ngIf="DetalleInvalido" class="text-danger">Campo Obligatorio</small><br *ngIf="DetalleInvalido">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary btn-sm"
+        (click)="modal.dismiss(); this.form.reset()">Cancelar</button>
+      <button type="submit" class="btn btn-primary btn-sm">Actualizar</button>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #eliminar let-modal>
+  <div class="modal-header">
+    <h6 class="modal-title">Eliminar Transaccion</h6>
+    <button type="button" class="btn-close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-3">
+      <h6>¿Está seguro de que desea eliminar la transaccion?</h6>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" (click)="modal.dismiss()">Cancelar</button>
+    <button type="submit" class="btn btn-danger btn-sm"
+      (click)="EliminarTransaccionBD(this.idTransaccion);  modal.close()">Eliminar</button>
+  </div>
+</ng-template>

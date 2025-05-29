@@ -1,0 +1,11 @@
+D:\Pruebas\Inventario\SistemaInventarioTransacciones\SistemaInventarioTransacciones.Dominio\bin\Debug\net8.0\SistemaInventarioTransacciones.Dominio.deps.json
+D:\Pruebas\Inventario\SistemaInventarioTransacciones\SistemaInventarioTransacciones.Dominio\bin\Debug\net8.0\SistemaInventarioTransacciones.Dominio.dll
+D:\Pruebas\Inventario\SistemaInventarioTransacciones\SistemaInventarioTransacciones.Dominio\bin\Debug\net8.0\SistemaInventarioTransacciones.Dominio.pdb
+D:\Pruebas\Inventario\SistemaInventarioTransacciones\SistemaInventarioTransacciones.Dominio\obj\Debug\net8.0\SistemaInventarioTransacciones.Dominio.GeneratedMSBuildEditorConfig.editorconfig
+D:\Pruebas\Inventario\SistemaInventarioTransacciones\SistemaInventarioTransacciones.Dominio\obj\Debug\net8.0\SistemaInventarioTransacciones.Dominio.AssemblyInfoInputs.cache
+D:\Pruebas\Inventario\SistemaInventarioTransacciones\SistemaInventarioTransacciones.Dominio\obj\Debug\net8.0\SistemaInventarioTransacciones.Dominio.AssemblyInfo.cs
+D:\Pruebas\Inventario\SistemaInventarioTransacciones\SistemaInventarioTransacciones.Dominio\obj\Debug\net8.0\SistemaInventarioTransacciones.Dominio.csproj.CoreCompileInputs.cache
+D:\Pruebas\Inventario\SistemaInventarioTransacciones\SistemaInventarioTransacciones.Dominio\obj\Debug\net8.0\SistemaInventarioTransacciones.Dominio.dll
+D:\Pruebas\Inventario\SistemaInventarioTransacciones\SistemaInventarioTransacciones.Dominio\obj\Debug\net8.0\refint\SistemaInventarioTransacciones.Dominio.dll
+D:\Pruebas\Inventario\SistemaInventarioTransacciones\SistemaInventarioTransacciones.Dominio\obj\Debug\net8.0\SistemaInventarioTransacciones.Dominio.pdb
+D:\Pruebas\Inventario\SistemaInventarioTransacciones\SistemaInventarioTransacciones.Dominio\obj\Debug\net8.0\ref\SistemaInventarioTransacciones.Dominio.dll

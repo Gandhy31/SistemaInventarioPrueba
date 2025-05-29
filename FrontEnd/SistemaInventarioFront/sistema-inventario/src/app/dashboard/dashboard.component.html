@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand me" href="#">Gestión de Inventarios</a>
+  </div>
+</nav>
+
+<div class="container py-4">
+  <div class="row g-3 mb-4">
+    <div class="col-md-3">
+      <div class="card card-stats shadow-sm p-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <small class="text-muted">Total Productos</small>
+            <h4 class="mb-0">{{ this.totalProductos}}</h4>
+          </div>
+          <div class="text-primary card-icon">
+            📦
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card card-stats shadow-sm p-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <small class="text-muted">Total Transacciones</small>
+            <h4 class="mb-0">{{this.totalTransacciones}}</h4>
+          </div>
+          <div class="text-success card-icon">
+            💵
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card card-stats shadow-sm p-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <small class="text-muted">Total Ventas</small>
+            <h4 class="mb-0">{{this.totalVentas}}</h4>
+          </div>
+          <div class="text-danger card-icon">
+            📈
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <div class="card card-stats shadow-sm p-3">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <small class="text-muted">Total Compras</small>
+            <h4 class="mb-0 text-nowrap">{{this.totalCompras}}</h4>
+          </div>
+          <div class="text-purple card-icon">
+            📉
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Secciones -->
+  <div class="row g-4">
+    <div class="col-md-6">
+      <div class="card shadow-sm p-4">
+        <h5 class="fw-bold mb-2">📦 Gestión de Productos</h5>
+        <p class="text-muted">Administra tu inventario de productos</p>
+        <div class="d-flex gap-2">
+          <button class="btn btn-dark" (click)="IrDashboardProductos()">Ver Productos</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card shadow-sm p-4">
+        <h5 class="fw-bold mb-2">💵 Transacciones</h5>
+        <p class="text-muted">Registra ventas, compras y ajustes</p>
+        <div class="d-flex gap-2">
+          <button class="btn btn-dark" (click)="IrDashboardTransacciones()">Ver Transacciones</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

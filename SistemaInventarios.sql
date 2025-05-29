@@ -1,0 +1,32 @@
+CREATE DATABASE SistemaInventarios
+
+GO
+
+USE SistemaInventarios
+
+GO
+
+CREATE TABLE Producto(
+	IdProducto INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	Nombre NVARCHAR(MAX) NOT NULL,
+	Descripcion NVARCHAR(MAX) NOT NULL, 
+	Categoria NVARCHAR(MAX) NOT NULL, 
+	Imagen VARBINARY(MAX) NOT NULL, 
+	Precio DECIMAL(10, 2) NOT NULL,
+	Stock INT NOT NULL, 
+	FechaCreacion DATETIME NOT NULL,
+	FechaModificacion DATETIME NOT NULL
+)
+
+CREATE TABLE Transaccion(
+	IdTransaccion INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
+	IdProducto INT NOT NULL,
+	Fecha DATETIME NOT NULL,
+	TipoTransaccion NVARCHAR(10) NOT NULL,
+	Cantidad INT NOT NULL,
+	PrecioUnitario DECIMAL(10, 2) NOT NULL,
+	PrecioTotal DECIMAL(10, 2) NOT NULL,
+	Detalle NVARCHAR(MAX) NOT NULL,
+	FechaCreacion DATETIME NOT NULL,
+	FechaModificacion DATETIME NOT NULL
+)

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "3xkm1Ulj5IASokt1x+w2wV2sH69qMloXb1gN/VYZgwI=",
+  "Source": "SistemaInventarioTransacciones.Api",
+  "BasePath": "_content/SistemaInventarioTransacciones.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,171 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand me" href="#">Gestión de Inventarios</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+      aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>
+
+<div class="container my-5">
+  <h2 class="fw-bold">Productos</h2>
+  <p class="text-muted">Inventario de productos</p>
+
+  <div class="d-flex justify-content-end mb-3">
+    <button class="btn btn-primary" (click)="AgregarProductoModal(agregar)">
+      <i class="bi bi-plus"></i> Agregar Producto
+    </button>
+  </div>
+
+  <div class="card mb-4">
+    <div class="card-header fw-bold">
+      <i class="bi bi-funnel-fill"></i> Filtros de Búsqueda
+    </div>
+    <div class="card-body">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <input type="text" class="form-control" placeholder="Buscar por nombre del producto" [(ngModel)]="this.filtro"
+            (input)="filtrarItems()">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table table-bordered align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Código</th>
+          <th>Nombre</th>
+          <th>Descripcion</th>
+          <th>Categoría</th>
+          <th>Precio</th>
+          <th>Stock</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of productosFiltrados | paginate: { itemsPerPage: 5, currentPage: paginaActual }">
+          <td><small class="text-muted">{{ producto.idProducto }}</small></td>
+          <td style="font-size:14px">{{ producto.nombre }}</td>
+          <td style="font-size:14px">{{ producto.descripcion }}</td>
+          <td style="font-size:14px">{{ producto.categoria }}</td>
+          <td style="font-size:14px">{{ producto.precio }}</td>
+          <td style="font-size:14px">{{ producto.stock }}</td>
+
+          <td>
+            <button class="btn btn-sm btn-outline-secondary me-1" (click)="ActualizarProductoModal(editar, producto)"><i
+                class="bi bi-pencil"></i></button>
+            <button class="btn btn-sm btn-outline-danger" (click)="EliminarProductoModal(eliminar, producto)"><i
+                class="bi bi-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-center">
+      <pagination-controls (pageChange)="paginaActual = $event" previousLabel="Anterior" nextLabel="Siguiente">
+      </pagination-controls>
+    </div>
+  </div>
+</div>
+
+<ng-template #agregar let-modal>
+  <form [formGroup]="form" (ngSubmit)="GuardarFormularioAgregar(modal)" style="font-size:14px">
+    <div class="modal-header">
+      <h6 class="modal-title">Agregar Producto</h6>
+      <button type="button" class="btn-close" (click)="modal.dismiss(); this.form.reset()"></button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-3">
+        <label for="producto" class="form-label">Nombre del Producto</label>
+        <input type="text" class="form-control" style="font-size:14px" [class.is-invalid]="NombreInvalido"
+          formControlName="nombre">
+        <small *ngIf="NombreInvalido" class="text-danger">Campo Obligatorio</small><br *ngIf="NombreInvalido">
+        <label for="producto" class="form-label mt-2">Descripcion del Producto</label>
+        <input type="text" class="form-control" style="font-size:14px" [class.is-invalid]="DescripcionInvalida"
+          formControlName="descripcion">
+        <small *ngIf="DescripcionInvalida" class="text-danger">Campo Obligatorio</small><br *ngIf="DescripcionInvalida">
+        <label for="producto" class="form-label mt-2">Categoria:</label>
+        <input type="text" class="form-control" style="font-size:14px" [class.is-invalid]="CategoriaInvalida"
+          formControlName="categoria">
+        <small *ngIf="CategoriaInvalida" class="text-danger">Campo Obligatorio</small><br *ngIf="CategoriaInvalida">
+        <label for="producto" class="form-label mt-2">Stock:</label>
+        <input type="number" class="form-control" style="font-size:14px" [class.is-invalid]="StockInvalido"
+          formControlName="stock">
+        <small *ngIf="StockInvalido" class="text-danger">Campo Obligatorio</small><br *ngIf="StockInvalido">
+        <label for="producto" class="form-label mt-2">Precio:</label>
+        <input type="number" class="form-control" style="font-size:14px" [class.is-invalid]="PrecioInvalido"
+          formControlName="precio">
+        <small *ngIf="PrecioInvalido" class="text-danger">Campo Obligatorio</small><br *ngIf="PrecioInvalido">
+        <label for="producto" class="form-label mt-2">Imagen:</label>
+        <input type="file" class="form-control" style="font-size:14px" [class.is-invalid]="ImagenInvalida"
+          (change)="convertirImagenBase64($event)">
+        <small *ngIf="ImagenInvalida" class="text-danger">Campo Obligatorio</small><br *ngIf="ImagenInvalida">
+
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary btn-sm"
+        (click)="modal.dismiss(); this.form.reset()">Cancelar</button>
+      <button type="submit" class="btn btn-primary btn-sm">Agregar</button>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #editar let-modal>
+  <form [formGroup]="form" (ngSubmit)="GuardarFormularioActualizar(modal)" style="font-size:14px">
+    <div class="modal-header">
+      <h6 class="modal-title">Actualizar Producto</h6>
+      <button type="button" class="btn-close" (click)="modal.dismiss(); this.form.reset()"></button>
+    </div>
+    <div class="modal-body">
+      <div class="mb-3">
+        <label for="producto" class="form-label">Nombre del Producto</label>
+        <input type="text" class="form-control" style="font-size:14px" [(ngModel)]="this.producto.nombre"
+          [class.is-invalid]="NombreInvalido" formControlName="nombre">
+        <small *ngIf="NombreInvalido" class="text-danger">Campo Obligatorio</small><br *ngIf="NombreInvalido">
+        <label for="producto" class="form-label mt-2">Descripcion del Producto</label>
+        <input type="text" class="form-control" style="font-size:14px" [(ngModel)]="this.producto.descripcion"
+          [class.is-invalid]="DescripcionInvalida" formControlName="descripcion">
+        <small *ngIf="DescripcionInvalida" class="text-danger">Campo Obligatorio</small><br *ngIf="DescripcionInvalida">
+        <label for="producto" class="form-label mt-2">Categoria:</label>
+        <input type="text" class="form-control" style="font-size:14px" [(ngModel)]="this.producto.categoria"
+          [class.is-invalid]="CategoriaInvalida" formControlName="categoria">
+        <small *ngIf="CategoriaInvalida" class="text-danger">Campo Obligatorio</small><br *ngIf="CategoriaInvalida">
+        <label for="producto" class="form-label mt-2">Stock:</label>
+        <input type="number" class="form-control" style="font-size:14px" [(ngModel)]="this.producto.stock"
+          [class.is-invalid]="StockInvalido" formControlName="stock">
+        <small *ngIf="StockInvalido" class="text-danger">Campo Obligatorio</small><br *ngIf="StockInvalido">
+        <label for="producto" class="form-label mt-2">Precio:</label>
+        <input type="number" class="form-control" style="font-size:14px" [(ngModel)]="this.producto.precio"
+          [class.is-invalid]="PrecioInvalido" formControlName="precio">
+        <small *ngIf="PrecioInvalido" class="text-danger">Campo Obligatorio</small><br *ngIf="PrecioInvalido">
+        <label for="producto" class="form-label mt-2">Imagen:</label>
+        <input type="file" class="form-control" style="font-size:14px" (change)="convertirImagenBase64($event)">
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary btn-sm"
+        (click)="modal.dismiss(); this.form.reset()">Cancelar</button>
+      <button type="submit" class="btn btn-primary btn-sm">Actualizar</button>
+    </div>
+  </form>
+</ng-template>
+
+<ng-template #eliminar let-modal>
+  <div class="modal-header">
+    <h6 class="modal-title">Eliminar Producto</h6>
+    <button type="button" class="btn-close" (click)="modal.dismiss()"></button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-3">
+      <h6>¿Está seguro de que desea eliminar el producto?</h6>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary btn-sm" (click)="modal.dismiss()">Cancelar</button>
+    <button type="submit" class="btn btn-danger btn-sm"
+      (click)="EliminarProductoBD(this.idProducto);  modal.close()">Eliminar</button>
+  </div>
+</ng-template>
