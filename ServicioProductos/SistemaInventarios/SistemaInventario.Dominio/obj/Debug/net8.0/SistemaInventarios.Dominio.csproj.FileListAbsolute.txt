@@ -1,0 +1,12 @@
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Dominio\bin\Debug\net8.0\SistemaInventarios.Dominio.deps.json
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Dominio\bin\Debug\net8.0\SistemaInventarios.Dominio.dll
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Dominio\bin\Debug\net8.0\SistemaInventarios.Dominio.pdb
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Dominio\obj\Debug\net8.0\SistemaInventarios.Dominio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Dominio\obj\Debug\net8.0\SistemaInventarios.Dominio.AssemblyInfoInputs.cache
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Dominio\obj\Debug\net8.0\SistemaInventarios.Dominio.AssemblyInfo.cs
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Dominio\obj\Debug\net8.0\SistemaInventarios.Dominio.csproj.CoreCompileInputs.cache
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Dominio\obj\Debug\net8.0\SistemaInventarios.Dominio.dll
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Dominio\obj\Debug\net8.0\refint\SistemaInventarios.Dominio.dll
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Dominio\obj\Debug\net8.0\SistemaInventarios.Dominio.pdb
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Dominio\obj\Debug\net8.0\ref\SistemaInventarios.Dominio.dll
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Dominio\obj\Debug\net8.0\SistemaInventarios.Dominio.sourcelink.json

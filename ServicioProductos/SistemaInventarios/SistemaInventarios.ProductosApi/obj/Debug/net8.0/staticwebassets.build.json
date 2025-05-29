@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ri9aVHGF/juYhOVvNuYAa5eWwuv2jgeaiSAPuWzGXbc=",
+  "Source": "SistemaInventarios.ProductosApi",
+  "BasePath": "_content/SistemaInventarios.ProductosApi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

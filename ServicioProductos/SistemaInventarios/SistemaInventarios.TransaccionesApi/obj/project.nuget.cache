@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "yzX5M9wk+evlQ8fZjRYZgGy3glyEIWH+tdcpO1USAk5hrNyrV4AbImCGZC2IX1eJshc7oR2+nNlffYub/ovlkg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Veronica\\source\\repos\\SistemaInventarios\\SistemaInventarios.TransaccionesApi\\SistemaInventarios.TransaccionesApi.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Veronica\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "C:\\Users\\Veronica\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\Veronica\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.5\\microsoft.visualstudio.azure.containers.tools.targets.1.19.5.nupkg.sha512",
+    "C:\\Users\\Veronica\\.nuget\\packages\\swashbuckle.aspnetcore\\6.4.0\\swashbuckle.aspnetcore.6.4.0.nupkg.sha512",
+    "C:\\Users\\Veronica\\.nuget\\packages\\swashbuckle.aspnetcore.swagger\\6.4.0\\swashbuckle.aspnetcore.swagger.6.4.0.nupkg.sha512",
+    "C:\\Users\\Veronica\\.nuget\\packages\\swashbuckle.aspnetcore.swaggergen\\6.4.0\\swashbuckle.aspnetcore.swaggergen.6.4.0.nupkg.sha512",
+    "C:\\Users\\Veronica\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.4.0\\swashbuckle.aspnetcore.swaggerui.6.4.0.nupkg.sha512"
+  ],
+  "logs": []
+}

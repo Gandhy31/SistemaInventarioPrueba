@@ -1,0 +1,16 @@
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\bin\Debug\net8.0\SistemaInventarios.Infraestructura.deps.json
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\bin\Debug\net8.0\SistemaInventarios.Infraestructura.dll
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\bin\Debug\net8.0\SistemaInventarios.Infraestructura.pdb
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\bin\Debug\net8.0\SistemaInventarios.Dominio.dll
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\bin\Debug\net8.0\SistemaInventarios.Dominio.pdb
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\obj\Debug\net8.0\SistemaInventarios.Infraestructura.csproj.AssemblyReference.cache
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\obj\Debug\net8.0\SistemaInventarios.Infraestructura.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\obj\Debug\net8.0\SistemaInventarios.Infraestructura.AssemblyInfoInputs.cache
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\obj\Debug\net8.0\SistemaInventarios.Infraestructura.AssemblyInfo.cs
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\obj\Debug\net8.0\SistemaInventarios.Infraestructura.csproj.CoreCompileInputs.cache
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\obj\Debug\net8.0\SistemaInventarios.Infraestructura.csproj.CopyComplete
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\obj\Debug\net8.0\SistemaInventarios.Infraestructura.dll
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\obj\Debug\net8.0\refint\SistemaInventarios.Infraestructura.dll
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\obj\Debug\net8.0\SistemaInventarios.Infraestructura.pdb
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\obj\Debug\net8.0\ref\SistemaInventarios.Infraestructura.dll
+C:\Users\Veronica\source\repos\SistemaInventarios\SistemaInventario.Infraestructura\obj\Debug\net8.0\SistemaInventarios.Infraestructura.sourcelink.json

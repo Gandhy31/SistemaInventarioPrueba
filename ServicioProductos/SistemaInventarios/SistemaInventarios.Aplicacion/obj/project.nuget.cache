@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "4vW3uHryE/9TA54nqa519Krw+p9zD20RtbSFUUqn63YN5vNFJZ9R0wwKi5IhSw8n2EgDXBqvos6852mTVcw0Ww==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Veronica\\source\\repos\\SistemaInventarios\\SistemaInventarios.Aplicacion\\SistemaInventarios.Aplicacion.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Veronica\\.nuget\\packages\\automapper\\14.0.0\\automapper.14.0.0.nupkg.sha512",
+    "C:\\Users\\Veronica\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\Veronica\\.nuget\\packages\\microsoft.extensions.options\\8.0.0\\microsoft.extensions.options.8.0.0.nupkg.sha512",
+    "C:\\Users\\Veronica\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
