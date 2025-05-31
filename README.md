@@ -9,7 +9,7 @@
 
 ### Frontend
 - Nodejs
-- Angular v16 (npm install -g @angular/cli@16)
+- Angular v16 
 
 ## Ejecucion del Backend
 - Ejecutar el script de base de datos
